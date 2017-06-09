@@ -14,13 +14,15 @@ Setting Up Your VHOST
 The following is a sample VHOST you might want to consider for your project.
 
 <VirtualHost *:80>
-   DocumentRoot "/home/gdh/testproject/source/public"
-   ServerName source.local
+   DocumentRoot "/var/www/public/zendphpunit/source/public"
+   ServerName zendphpunit.local
 
    # This should be omitted in the production environment
    SetEnv APPLICATION_ENV development
+   ErrorLog        /var/www/public/zendphpunit/error_log
+   CustomLog       /var/www/public/zendphpunit/access_log combined env=!nolog
     
-   <Directory "/home/gdh/testproject/source/public">
+   <Directory "/var/www/public/zendphpunit/source/public">
        Options Indexes MultiViews FollowSymLinks
        AllowOverride All
        Order allow,deny
